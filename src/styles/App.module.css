@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+.App {
+  text-align: center;
+}
+
+.link {
+  color: #b318f0;
+}
+
+body{
+  background-color: #282c34;
+}
+
