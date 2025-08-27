@@ -1,4 +1,13 @@
 @import "tailwindcss";
+@font-face{
+    font-family: 'Hack';
+    src: url("../assets/Hack-Regular.ttf")
+}
+
+@font-face{
+    font-family: 'Montserrat';
+    src: url("../assets/Montserrat-VariableFont_wght.ttf")
+}
 
 :root { /* all variables */
     --background: 28, 26, 25;
@@ -6,6 +15,7 @@
     --inactive: 126, 126, 126;
     --emphasis: 234, 119, 70;
     --primary-font: 'Montserrat';
+    --mono-font: 'Hack', 'Fira Mono', mono;
 }
 
 body {

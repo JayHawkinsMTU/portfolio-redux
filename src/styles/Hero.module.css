@@ -1,12 +1,20 @@
 section {
   width:100vw;
   padding-top: 33vh;
+  text-align: center; 
 }
 
 h1 {
   font-size: xxx-large;
-  text-align: center; 
-  margin-bottom: -0.75ch;
+  margin-bottom: -0.5ch;
+  color: rgb(--foreground);
+}
+
+
+h3 {
+  font-size: x-large;
+  font-family: var(--mono-font);
+  color: rgb(var(--emphasis));
 }
 
 .mirrored {
@@ -16,6 +24,9 @@ h1 {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  margin-top: -0.75ch;
+  margin-top: -0.5ch;
 }
 
+.glowEmphasize {
+  filter: drop-shadow(rgb(var(--emphasis)) 0 0 5px)
+}
