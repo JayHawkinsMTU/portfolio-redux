@@ -1,6 +1,13 @@
-export default function Hero() {
+import styles from '../styles/Hero.module.css'
+
+type HeroArguments = {
+  text: string;
+}
+
+export default function Hero(args: HeroArguments) {
   return (
-    <section>
+    <section class={styles.section}>
+      <h1 class={styles.h1}>{args.text}</h1>
     </section>
   )
 }
