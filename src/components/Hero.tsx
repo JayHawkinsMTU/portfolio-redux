@@ -25,6 +25,8 @@ function MirrorText(args: { title: string }) {
 
 function Subtitle(args: { subtitle: string }) {
   return (
-    <h3 class={styles.glowEmphasize}>{args.subtitle}</h3>
+    <div class="w-fit mx-auto">
+      <h3 class={styles.typewriter}>{args.subtitle}</h3>
+    </div>
   )
 }

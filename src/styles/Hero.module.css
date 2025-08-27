@@ -1,6 +1,6 @@
 section {
   width:100vw;
-  padding-top: 33vh;
+  padding-top: 25vh;
   text-align: center; 
 }
 
@@ -29,4 +29,24 @@ h3 {
 
 .glowEmphasize {
   filter: drop-shadow(rgb(var(--emphasis)) 0 0 5px)
+}
+
+.typewriter {
+  border-right: 1ch solid transparent;
+  font-size: x-large;
+  overflow: hidden;
+  margin: 0 auto;
+  white-space: nowrap;
+  animation: typing 3.5s steps(28, end),
+    blink-caret 1s step-end 4;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: rgba(var(--emphasis), 1) }
 }
