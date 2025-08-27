@@ -1,13 +1,12 @@
 import type { Component } from 'solid-js';
-import styles from '@/styles/App.module.css';
 import GrainBackground from './components/GrainBackground.tsx';
 
 const App: Component = () => {
   return (
     <>
       <GrainBackground />
-      <div class={styles.App}>
-        <header class={styles.header}>
+      <div>
+        <header>
           <TestComponent/>
         </header>
       </div>
@@ -17,7 +16,7 @@ const App: Component = () => {
 };
 
 function TestComponent() {
-  return <div class='text-3xl font-bold underline'>Test</div>
+  return <p>Test</p>
 }
 
 export default App;
