@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
 :root { /* all variables */
-    --background: #1C1A19;
-    --foreground: #ffffff;
-    --emphasis: #EA7746;
+    --background: 28, 26, 25;
+    --foreground: 255, 255, 255;
+    --inactive: 126, 126, 126;
+    --emphasis: 234, 119, 70;
     --primary-font: 'Montserrat';
 }
 
@@ -14,8 +15,8 @@ body {
     'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--foreground);
-  background-color: var(--background);
+  color: rgb(var(--foreground));
+  background-color: rgb(var(--background));
 }
 
 code {

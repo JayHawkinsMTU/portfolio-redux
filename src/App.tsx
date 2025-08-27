@@ -8,7 +8,7 @@ const App: Component = () => {
       <GrainBackground />
       <div>
         <header>
-            <Hero text="test text" />
+          <Hero text="test text" />
         </header>
       </div>
     </>
