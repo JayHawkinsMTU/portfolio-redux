@@ -1,4 +1,7 @@
 import styles from '@/styles/Hero.module.css'
+import { JSXElement } from 'solid-js';
+import { FaBrandsLinkedinIn } from 'solid-icons/fa'
+import { FiGithub, FiMail } from 'solid-icons/fi'
 
 type HeroArguments = {
   title: string;
@@ -10,6 +13,17 @@ export default function Hero(args: HeroArguments) {
     <section class={styles.section}>
       <MirrorText title={args.title} />
       <Subtitle subtitle={args.subtitle} />
+      <span class="my-5 mx-auto inline-block">
+        <LinkIcon href="https://github.com/JayHawkinsMTU">
+          <FiGithub class={styles.icon} />
+        </LinkIcon>
+        <LinkIcon href="https://www.linkedin.com/in/jakob-hawkins-a37421310/">
+          <FaBrandsLinkedinIn class={styles.icon} />
+        </LinkIcon>
+        <LinkIcon href="mailto:hawkinsjr27@gmail.com">
+          <FiMail class={styles.icon} /> 
+        </LinkIcon>
+      </span>
     </section>
   )
 }
@@ -28,5 +42,17 @@ function Subtitle(args: { subtitle: string }) {
     <div class="w-fit mx-auto">
       <h3 class={styles.typewriter}>{args.subtitle}</h3>
     </div>
+  )
+}
+
+function LinkIcon(args: {href: string, children: JSXElement}) {
+  function redirect() {
+    window.location.href = args.href
+  }
+
+  return (
+    <button class={styles.link} onclick={redirect}>
+      {args.children}
+    </button>
   )
 }
