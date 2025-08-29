@@ -1,28 +1,28 @@
 @import "tailwindcss";
 @font-face{
-    font-family: 'Hack';
-    src: url("../assets/Hack-Regular.ttf")
+  font-family: 'Hack';
+  src: url("../assets/Hack-Regular.ttf")
 }
 
 @font-face{
-    font-family: 'Montserrat';
-    src: url("../assets/Montserrat-VariableFont_wght.ttf")
+  font-family: 'Montserrat';
+  src: url("../assets/Montserrat-VariableFont_wght.ttf")
 }
 
 :root { /* all variables */
-    --background: 28, 26, 25;
-    --foreground: 255, 255, 255;
-    --inactive: 126, 126, 126;
-    --emphasis: 234, 119, 70;
-    --primary-font: 'Montserrat';
-    --mono-font: 'Hack', 'Fira Mono', mono;
+  --background: 28, 26, 25;
+  --foreground: 255, 255, 255;
+  --inactive: 126, 126, 126;
+  --emphasis: 234, 119, 70;
+  --primary-font: 'Montserrat';
+  --mono-font: 'Hack', 'Fira Mono', mono;
 }
 
 body {
   margin: 0;
   font-family: var(--primary-font), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-    'Helvetica Neue', sans-serif;
+  'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+  'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: rgb(var(--foreground));
@@ -31,7 +31,7 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
 }
 
 .bg:after{
