@@ -46,13 +46,11 @@ function Subtitle(args: { subtitle: string }) {
 }
 
 function LinkIcon(args: {href: string, children: JSXElement}) {
-  function redirect() {
-    window.location.href = args.href
-  }
-
   return (
-    <button class={styles.link} onclick={redirect}>
+    <a href={args.href}>
+    <button class={styles.link}>
       {args.children}
     </button>
+    </a>
   )
 }
