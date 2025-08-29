@@ -4,9 +4,9 @@
 
 .bg:after{
   content:"";
-  background-image:url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png");
-  height: 300%;
-  width: 300%;
+  background-image:url("../assets/512x512_Dissolve_Noise_Texture.png");
+  height: 150%;
+  width: 150%;
   position: fixed;
   top: 0;
   z-index: 10;
