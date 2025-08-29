@@ -1,10 +1,54 @@
 .tv {
   margin: 6rem auto;
   width: 48rem;
-  height: 36rem;
+  max-width: 90vw;
+  aspect-ratio: 4 / 3;
   background-color: white;
   border-radius: 10%;
   mask-clip: border-box;
   filter: drop-shadow(white 0 0 5px);
   overflow: hidden;
+}
+
+.noise {
+  width: 300%;
+  height:300%;
+  background-image: url("../assets/256x256_Dissolve_Noise_Texture.png");
+  background-repeat: repeat;
+  background-position: 0 0;
+  animation: static 8s steps(8) infinite;
+}
+
+@keyframes static {
+  0%, 100% { background-position: 0 0}
+  50%{
+    background-position: -5% -10%
+  }
+  20%{
+    background-position: 15% 20%
+  }
+  30%{
+    background-position: -5% -10%
+  }
+  40%{
+    background-position: 15% 20%
+  }
+  50%{
+    background-position: -5% -10%
+  }
+  60%{
+    background-position: -35% -50%
+  }
+  70%{
+    background-position: 50% 10%
+  }
+  80%{
+    background-position: 15% 54%
+  }
+  90%{
+    background-position: -5% 19%
+  }
+  100%{
+    background-position: -28% 80%
+  }
 }
