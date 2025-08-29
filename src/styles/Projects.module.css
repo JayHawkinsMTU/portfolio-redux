@@ -1,7 +1,12 @@
-.tv {
+.projects {
   margin: 6rem auto;
   width: 48rem;
   max-width: 90vw;
+}
+
+
+.tv {
+  width: 100%;
   aspect-ratio: 4 / 3;
   background-color: white;
   border-radius: 10%;
