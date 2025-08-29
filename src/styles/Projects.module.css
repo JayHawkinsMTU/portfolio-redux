@@ -1,0 +1,15 @@
+.tv {
+  margin: 6rem auto;
+  width: 32rem;
+  height: 24rem;
+  background-color: white;
+  border-radius: 2.5rem;
+  mask-clip: border-box;
+  filter: drop-shadow(white 0 0 5px);
+}
+
+.mask {
+  mask-image: url("../assets/tv_mask.svg");
+  mask-size: 32rem 24rem;
+  mask-repeat: no-repeat;
+}
