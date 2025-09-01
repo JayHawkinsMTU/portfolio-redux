@@ -6,8 +6,8 @@ section {
 
 h1 {
   font-size: xxx-large;
-  margin-bottom: -0.5ch;
   color: rgb(--foreground);
+  user-select: none;
 }
 
 
@@ -15,6 +15,7 @@ h3 {
   font-size: x-large;
   font-family: var(--mono-font);
   color: rgb(var(--emphasis));
+  user-select: none;
 }
 
 .mirrored {
@@ -25,6 +26,7 @@ h3 {
   background-clip: text;
   color: transparent;
   margin-top: -0.5ch;
+  user-select: none;
 }
 
 .link {

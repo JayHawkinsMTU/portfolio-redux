@@ -1,5 +1,5 @@
 import styles from '@/styles/Projects.module.css'
-import noise from '@/assets/256x256_Dissolve_Noise_Texture.png'
+import { FaSolidEject } from 'solid-icons/fa'
 
 export default function Projects() {
   return (
@@ -21,8 +21,9 @@ function Tv() {
 function Summary() {
   return (
     <article>
-      <span class="flex p-2">
+      <span class="flex p-2 items-center justify-between">
         <h1 class="font-semibold">select a project</h1>
+        <FaSolidEject />
       </span>
     </article>
   )

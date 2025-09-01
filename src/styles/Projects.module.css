@@ -21,7 +21,7 @@
   background-image: url("../assets/256x256_Dissolve_Noise_Texture.png");
   background-repeat: repeat;
   background-position: 0 0;
-  animation: static 8s steps(8) infinite;
+  animation: static 1s steps(1) infinite;
 }
 
 @keyframes static {
