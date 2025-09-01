@@ -24,6 +24,18 @@
   animation: static 1s steps(1) infinite;
 }
 
+.eject {
+  height: 2rem;
+  width: 2rem;
+  cursor: pointer;
+  filter: drop-shadow(white 0 0 0px);
+  transition: all 250ms;
+}
+
+.eject:hover {
+  filter: drop-shadow(white 0 0 5px);
+}
+
 @keyframes static {
   0%, 100% { background-position: 0 0}
   50%{

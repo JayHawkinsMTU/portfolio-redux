@@ -1,7 +1,13 @@
 import styles from '@/styles/Projects.module.css'
 import { FaSolidEject } from 'solid-icons/fa'
+import { createSignal } from 'solid-js'
+
+type TvState = "EMPTY" | "LOADING" | "LOADED"
+
+const [state, setState] = createSignal<TvState>("LOADED")
 
 export default function Projects() {
+
   return (
     <div class={styles.projects}>
       <Tv />
@@ -23,8 +29,17 @@ function Summary() {
     <article>
       <span class="flex p-2 items-center justify-between">
         <h1 class="font-semibold">select a project</h1>
-        <FaSolidEject />
+        <Eject />
       </span>
     </article>
+  )
+}
+
+function Eject() {
+  return (
+    <FaSolidEject class={
+      `${styles.eject} ${state() == "EMPTY" && "fill-[rgb(var(--inactive))] pointer-events-none"}`
+    } 
+    onclick={() => setState("EMPTY")} />
   )
 }
