@@ -1,0 +1,45 @@
+.fullbutton {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(var(--background));
+  border-style: solid;
+  border-color: rgb(var(--foreground));
+  border-width: 3px;
+  padding: 4px;
+  margin-bottom: 1rem;
+  font-size: 20pt;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.fullbutton:hover {
+  background-color: rgba(var(--inactive), .5);
+}
+
+.timeline, .blurb {
+  border-style: none;
+  border-left-style: solid;
+  border-color: rgba(var(--inactive), 0.75);
+  width: 100%;
+  border-width: 3px;
+  padding-left: 1rem;
+}
+
+.blurb {
+  font-size: 14pt;
+  color: rgb(var(--inactive));
+}
+
+.timestamp, .blurb {
+  margin-bottom: 1rem;
+}
+
+.timestamp {
+  color: rgba(var(--foreground), 0.65);
+  transition: all 0.5s;
+}
+
+.timestamp:hover {
+  color: rgba(var(--foreground), 1);
+  margin-left: 1rem;
+}
