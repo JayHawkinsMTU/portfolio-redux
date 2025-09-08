@@ -43,3 +43,26 @@
   color: rgba(var(--foreground), 1);
   margin-left: 1rem;
 }
+
+.project {
+  display: flex;
+  overflow-x: hidden;
+  width: 100%;
+  padding: 3px;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 0.5s;
+  cursor: pointer; 
+}
+
+.project:hover {
+  margin-left: 1rem;
+}
+
+.project h1 {
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.project p {
+  color: rgb(var(--inactive));
+}
