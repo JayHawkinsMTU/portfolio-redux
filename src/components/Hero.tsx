@@ -11,8 +11,10 @@ type HeroArguments = {
 export default function Hero(args: HeroArguments) {
   return (
     <section class={styles.section}>
-      <MirrorText title={args.title} />
-      <Subtitle subtitle={args.subtitle} />
+      <div class="select-none">
+        <MirrorText title={args.title} />
+        <Subtitle subtitle={args.subtitle} />
+      </div>
       <span class="my-5 mx-auto inline-block">
         <LinkIcon href="https://github.com/JayHawkinsMTU">
           <FiGithub class={styles.icon} />

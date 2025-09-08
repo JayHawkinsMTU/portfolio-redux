@@ -26,7 +26,7 @@ function EventInterpreter(args: { event: TimelineEvent }) {
 
 function Timestamp(args: { month: string }) {
   return (
-    <h3 class={styles.timestamp}>{args.month}</h3>
+    <h3 class={`${styles.timestamp} select-none`}>{args.month}</h3>
   );
 }
 

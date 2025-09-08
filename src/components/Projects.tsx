@@ -8,7 +8,6 @@ type TvState = "EMPTY" | "LOADING" | "LOADED"
 const [state, setState] = createSignal<TvState>("EMPTY")
 
 export default function Projects() {
-
   return (
     <div class={styles.projects}>
       <Tv />
