@@ -1,16 +1,27 @@
 import styles from '@/styles/Timeline.module.css'
+import type { TimelineEvent, Project } from '@/types/projectTimeline.d.ts'
+import { timeline } from '@/content/timeline.ts'
 
 export default function Timeline() {
   return (
     <>
       <button class={styles.fullbutton}>jump to bottom</button>
       <div class={styles.timeline}>
-        <Timestamp month="September '25" />
-        <Blurb text="started third year at MTU" />
-        <Timestamp month="May '25" />
+        {timeline.map((e) => <EventInterpreter event={e} />)}
       </div>
     </>
   );
+}
+
+function EventInterpreter(args: { event: TimelineEvent }) {
+  switch(args.event.eventType) {
+    case "timestamp":
+      return <Timestamp month={args.event.eventData as string}/>
+    case "blurb":
+      return <Blurb text={args.event.eventData as string}/>
+    case "project":
+      return <Project project={args.event.eventData as Project} />
+  }
 }
 
 function Timestamp(args: { month: string }) {
@@ -26,3 +37,13 @@ function Blurb(args: { text: string }) {
     </div>
   );
 }
+
+function Project(args: { project: Project }) {
+  return (
+    <div />
+  )
+}
+
+
+
+

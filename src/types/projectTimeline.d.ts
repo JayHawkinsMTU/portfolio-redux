@@ -1,3 +1,8 @@
+export type TimelineEvent = {
+  eventType: "timestamp" | "blurb" | "project"
+  eventData: Project | string;
+};
+
 export type Project = {
   title: string;
   description: string;
@@ -7,4 +12,3 @@ export type Project = {
   otherLink?: URL;
 }
 
-export default Project;
