@@ -1,0 +1,6 @@
+.techicon {
+  overflow: visible;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: rgba(var(--emphasis), 1);
+}

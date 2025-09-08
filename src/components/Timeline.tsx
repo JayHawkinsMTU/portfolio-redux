@@ -1,6 +1,7 @@
 import styles from '@/styles/Timeline.module.css'
 import type { TimelineEvent, Project } from '@/types/projectTimeline.d.ts'
 import { timeline } from '@/content/timeline.ts'
+import TechIcon from '@/components/TechIcon.tsx';
 
 function scrollToBottom() {
   const top = document.getElementById("timeline").getBoundingClientRect().bottom;
@@ -58,13 +59,19 @@ function Blurb(args: { text: string }) {
   );
 }
 
+
 function Project(args: { project: Project }) {
   return (
     <span class={styles.project} id={args.project.title}
       onClick={() => scrollToTv()}>
       <img src={args.project.imgSrc} alt={`${args.project.title} preview`}/>
-      <div class="px-2">
-        <h1>{args.project.title}</h1>
+      <div class="px-2 w-full">
+        <span class="flex items-center justify-between">
+          <h1>{args.project.title}</h1>
+          <span class="flex">
+            {args.project.technologies.map((t) => <TechIcon tech={t} />)}
+          </span>
+        </span>
         <p class="text-l">{args.project.description}</p>
       </div>
     </span>
