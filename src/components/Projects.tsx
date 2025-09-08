@@ -18,7 +18,7 @@ export default function Projects() {
 
 function Tv() {
   return (
-    <div class={styles.tv}>
+    <div class={styles.tv} id="tv">
       <div class={styles.noise}/>
     </div>
   )

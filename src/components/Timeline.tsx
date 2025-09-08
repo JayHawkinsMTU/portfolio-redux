@@ -2,11 +2,31 @@ import styles from '@/styles/Timeline.module.css'
 import type { TimelineEvent, Project } from '@/types/projectTimeline.d.ts'
 import { timeline } from '@/content/timeline.ts'
 
+function scrollToBottom() {
+  const top = document.getElementById("timeline").getBoundingClientRect().bottom;
+  window.scrollTo({
+    top: top + window.scrollY,
+    behavior: "smooth"
+  });
+}
+
+function scrollToTv() {
+  const top = document.getElementById("tv").getBoundingClientRect().top; 
+  // gap between tv and top after scrolling
+  const paddingTop = 25;
+  window.scrollTo({
+    top: top + window.scrollY - paddingTop, 
+    behavior: "smooth"
+  });
+}
+
 export default function Timeline() {
   return (
     <>
-      <button class={styles.fullbutton}>jump to bottom</button>
-      <div class={styles.timeline}>
+      <button class={styles.fullbutton} onClick={() => scrollToBottom()}>
+        jump to bottom
+      </button>
+      <div class={styles.timeline} id="timeline">
         {timeline.map((e) => <EventInterpreter event={e} />)}
       </div>
     </>
@@ -40,7 +60,8 @@ function Blurb(args: { text: string }) {
 
 function Project(args: { project: Project }) {
   return (
-    <span class={styles.project}>
+    <span class={styles.project} id={args.project.title}
+      onClick={() => scrollToTv()}>
       {/* TODO: replace placeholder */}
       <div class="bg-white w-[240px] h-[135px]" />
       <div class="px-2">
