@@ -66,3 +66,8 @@
 .project p {
   color: rgb(var(--inactive));
 }
+
+.project img {
+  width: 240px;
+  height: 135px;
+}

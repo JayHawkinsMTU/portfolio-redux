@@ -17,8 +17,8 @@ export const timeline: TimelineEvent[] = [
     eventType: "project",
     eventData: {
       title: "Squigley",
-      description: "Released a physics-based platformer developed using C# and Unity to Steam",
-      imgSrc: "placeholer"
+      description: "A physics-based platformer available on Steam",
+      imgSrc: "src/assets/proj_placeholder.png"
     }
   },
 ]

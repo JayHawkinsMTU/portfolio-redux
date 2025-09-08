@@ -6,7 +6,7 @@ export type TimelineEvent = {
 export type Project = {
   title: string;
   description: string;
-  imgSrc?: string;
+  imgSrc: string;
   githubLink?: URL;
   steamLink?: URL;
   otherLink?: URL;

@@ -62,8 +62,7 @@ function Project(args: { project: Project }) {
   return (
     <span class={styles.project} id={args.project.title}
       onClick={() => scrollToTv()}>
-      {/* TODO: replace placeholder */}
-      <div class="bg-white w-[240px] h-[135px]" />
+      <img src={args.project.imgSrc} alt={`${args.project.title} preview`}/>
       <div class="px-2">
         <h1>{args.project.title}</h1>
         <p class="text-l">{args.project.description}</p>
