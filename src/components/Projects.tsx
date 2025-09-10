@@ -28,7 +28,7 @@ function Summary() {
   return (
     <article>
       <span class="flex p-2 items-center justify-between">
-        <h1 class="font-semibold">select a project</h1>
+        <h1 class="font-semibold">project timeline</h1>
         <Eject />
       </span>
       {state() == "EMPTY" &&

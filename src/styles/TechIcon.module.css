@@ -3,4 +3,6 @@
   width: 2.5rem;
   height: 2.5rem;
   color: rgba(var(--emphasis), 1);
+  margin: 4px;
+  filter: drop-shadow(rgba(var(--emphasis), 0.75) 0 0 5px);
 }

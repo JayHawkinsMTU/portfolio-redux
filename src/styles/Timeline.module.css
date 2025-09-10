@@ -52,6 +52,7 @@
   background-color: rgba(0, 0, 0, 0.5);
   transition: all 0.5s;
   cursor: pointer; 
+  margin-bottom: 1rem;
 }
 
 .project:hover {

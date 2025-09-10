@@ -1,5 +1,5 @@
 import type { Technology } from "@/types/projectTimeline.js"
-import { TbBrandCarbon, TbBrandCpp, TbBrandCSharp, TbBrandKotlin, TbBrandUnity, TbSql } from "solid-icons/tb"
+import { TbBrandCarbon, TbBrandCpp, TbBrandCSharp, TbBrandKotlin, TbBrandPython, TbBrandUnity, TbSql } from "solid-icons/tb"
 import styles from "@/styles/TechIcon.module.css"
 
 // Hard-coded replacement for element dict. Not ideal.
@@ -17,6 +17,8 @@ export default function TechIcon(args: { tech: Technology}) {
       return <TbBrandKotlin class={styles.techicon} />
     case "sql":
       return <TbSql class={styles.techicon} />
+    case "python":
+      return <TbBrandPython class={styles.techicon} />
   }
 }
 
