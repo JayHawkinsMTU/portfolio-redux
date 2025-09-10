@@ -1,16 +1,24 @@
-export type TimelineEvent = {
-  eventType: "timestamp" | "blurb" | "project"
-  eventData: Project | string;
-};
+export type TimelineEvent = TETimestamp | TEBlurb | TEProject;
+
+export type TETimestamp = {
+  timestamp: string;
+}
+
+export type TEBlurb = {
+  blurb: string;
+}
+
+export type TEProject = {
+  projectId: string;
+}
 
 export type Project = {
   title: string;
   description: string;
-  imgSrc: string;
   technologies: Technology[]
-  githubLink?: URL;
-  steamLink?: URL;
-  otherLink?: URL;
+  githubUrl?: string;
+  steamUrl?: string;
+  otherUrl?: string;
 }
 
 // Showcase technologies and languages used on a project

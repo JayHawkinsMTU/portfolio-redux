@@ -33,11 +33,16 @@ projects/<project_name>/
 ```
 
 `<project_name>.md` will contain the following in the frontmatter:
-- `displayName`
+- `title` Display name of the project
 - `description` Brief descripion used in timeline
 - `technologies` Array of strings corresponding to Technology enum defined in
   `src/types/projectTimeline.d.ts`
   - Each entry in the enum should have a return value in 
     `src/components/TechIcon.tsx`
+
+And optionally:
+- `githubUrl?`
+- `steamUrl?`
+- `otherUrl?`
 
 `<project_name>` should be written in snake case in all occurences.
