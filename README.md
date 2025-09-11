@@ -23,10 +23,10 @@ such as projects, timestamps, and blurbs for additional context. This could
 have been a simple .json file, but exporting it as a typescript const
 allows me to easily type-check it using LSP features and prevent mistakes.
 
-`src/projects/` Should contain all data pertaining to a project in the
+`public/projects/` Should contain all data pertaining to a project in the
 following structure:
 ```
-projects/<project_name>/
+public/projects/<project_name>/
 | <project_name>.md                 # Contains brief write-up and frontmatter
 | <project_name>_thumbnail.webp     # 240x135 image for timeline
 | <project_name>.webp               # Higher resolution image displayed to tv
