@@ -35,14 +35,12 @@ export default function Timeline() {
 }
 
 function EventInterpreter(args: { event: TimelineEvent }) {
-  switch(args.event.eventType) {
-    case "timestamp":
-      return <Timestamp month={args.event.eventData as string}/>
-    case "blurb":
-      return <Blurb text={args.event.eventData as string}/>
-    case "project":
-      return <Project project={args.event.eventData as Project} />
-  }
+  if("timestamp" in args.event)
+    return <Timestamp month={args.event.timestamp as string}/>
+  else if("blurb" in args.event)
+    return <Blurb text={args.event.blurb as string}/>
+  else if("projectId" in args.event)
+    return <Project project={args.event.projectId} />
 }
 
 function Timestamp(args: { month: string }) {
