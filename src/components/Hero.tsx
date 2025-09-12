@@ -47,7 +47,7 @@ function Subtitle(args: { subtitle: string }) {
   )
 }
 
-function LinkIcon(args: {href: string, children: JSXElement}) {
+export function LinkIcon(args: {href: string, children: JSXElement}) {
   return (
     <a href={args.href}>
     <button class={styles.link}>

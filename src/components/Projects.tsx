@@ -7,6 +7,9 @@ import matter from 'gray-matter'
 import { marked } from 'marked'
 import DOMPurify from 'dompurify'
 import type { Project } from '@/types/projectTimeline.d.ts'
+import { FiGithub } from 'solid-icons/fi'
+import { ImSteam } from 'solid-icons/im'
+import { RiEditorLinkM } from 'solid-icons/ri'
 
 type ProjectFile = {
   content: string;
@@ -85,10 +88,35 @@ function Summary() {
         <Eject />
       </span>
       {selectedProject() === null ?
-        <Timeline /> :
-        <div class={styles.markdown}
-          innerHTML={DOMPurify.sanitize(marked.parse(selectedProject().content) as string)} />
+        <Timeline /> : <ProjectArticle />
       }
+    </article>
+  )
+}
+
+function ProjectArticle() {
+  const proj = selectedProject();
+  return (
+    <article>
+      <span class="flex">
+        {proj.data.githubUrl && 
+          <SmallLinkIcon href={proj.data.githubUrl}>
+            <FiGithub class={styles.icon}/>
+          </SmallLinkIcon>  
+        }
+        {proj.data.steamUrl && 
+          <SmallLinkIcon href={proj.data.steamUrl}>
+            <ImSteam class={styles.icon}/>
+          </SmallLinkIcon>  
+        }
+        {proj.data.otherUrl && 
+          <SmallLinkIcon href={proj.data.otherUrl}>
+            <RiEditorLinkM class={styles.icon}/>
+          </SmallLinkIcon>  
+        }
+      </span>
+      <div class={styles.markdown}
+        innerHTML={DOMPurify.sanitize(marked.parse(proj.content) as string)} />
     </article>
   )
 }
@@ -101,5 +129,15 @@ function Eject() {
       } 
       onclick={() => setSelectedProject(null)}
     />
+  )
+}
+
+export function SmallLinkIcon(args: {href: string, children: JSXElement}) {
+  return (
+    <a href={args.href}>
+    <button class={styles.smallLink}>
+      {args.children}
+    </button>
+    </a>
   )
 }

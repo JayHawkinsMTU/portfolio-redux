@@ -78,6 +78,35 @@
   }
 }
 
+.smallLink {
+  filter: drop-shadow(rgb(var(--emphasis)) 0 0 5px);
+  border-radius: calc(infinity * 1px);
+  transition: all 0.5s;
+  background-color: black;
+  height: 3rem;
+  width: 3rem;
+  cursor: pointer;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.smallLink:hover {
+  filter: drop-shadow(rgb(var(--emphasis)) 0 0 15px);
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+  margin: 0 auto;
+  transition: all 0.5s;
+  color: rgba(var(--foreground), 0.85);
+}
+
+.markdown {
+  margin-top: 1rem;
+  font-size: large;
+}
+
 .markdown h1 {
   font-weight: bold;
   font-size: xxx-large;
@@ -92,6 +121,10 @@
   font-size: x-large;
   font-weight: 600;
   color: rgb(var(--foreground));
+}
+
+.markdown p {
+  margin-bottom: 1rem;
 }
 
 .markdown ul {
