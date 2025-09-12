@@ -1,5 +1,5 @@
 .projects {
-  margin: 6rem auto;
+  margin: 30vh auto;
   width: 48rem;
   max-width: 90vw;
 }
@@ -13,6 +13,14 @@
   mask-clip: border-box;
   filter: drop-shadow(rgba(255, 255, 255, 0.5) 0 0 2rem);
   overflow: hidden;
+}
+
+.tv img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
 }
 
 .noise {
@@ -69,3 +77,28 @@
     background-position: -28% 80%
   }
 }
+
+.markdown h1 {
+  font-weight: bold;
+  font-size: xxx-large;
+}
+
+.markdown h2 {
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.markdown h3 {
+  font-size: x-large;
+  font-weight: 600;
+  color: rgb(var(--foreground));
+}
+
+.markdown ul {
+  list-style-type: square;
+  margin-left: 1rem;
+}
+
+.markdown ul.a {list-style-type: circle;}
+.markdown ul.b {list-style-type: disc;}
+.markdown ul.c {list-style-type: square;}

@@ -2,23 +2,13 @@ import styles from '@/styles/Timeline.module.css'
 import type { TimelineEvent, Project } from '@/types/projectTimeline.d.ts'
 import { projectDataUrl, timeline } from '@/content/timeline.ts'
 import TechIcon from '@/components/TechIcon.tsx';
-import { projects } from '@/components/Projects.tsx'
-import { Show, Switch, Match } from 'solid-js'
+import { projects, selectedProject, setSelectedProject } from '@/components/Projects.tsx'
+import { Show, Switch, Match, createEffect } from 'solid-js'
 
 function scrollToBottom() {
   const top = document.getElementById("timeline").getBoundingClientRect().bottom;
   window.scrollTo({
     top: top + window.scrollY,
-    behavior: "smooth"
-  });
-}
-
-function scrollToTv() {
-  const top = document.getElementById("tv").getBoundingClientRect().top; 
-  // gap between tv and top after scrolling in px
-  const paddingTop = 100;
-  window.scrollTo({
-    top: top + window.scrollY - paddingTop, 
     behavior: "smooth"
   });
 }
@@ -78,7 +68,9 @@ function Blurb(args: { text: string }) {
 function Project(args: { project: Project }) {
   return (
     <span class={styles.project} id={args.project.title}
-      onClick={() => scrollToTv()}>
+      onClick={() => {
+        setSelectedProject(projects()[args.project.projectId]);
+      }}>
       <img src={`${projectDataUrl}/${args.project.projectId}/thumbnail.webp`}
         alt={`${args.project.title} preview`} />
       <div class="px-2 w-full">
@@ -96,8 +88,7 @@ function Project(args: { project: Project }) {
 
 function ProjectSkeleton() {
   return (
-    <span class={styles.project}
-      onClick={() => scrollToTv()}>
+    <span class={styles.project}>
       <div class={styles.skeletonImg} />
       <div class="px-2 w-full">
         <span class="flex items-center justify-between">

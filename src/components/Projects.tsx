@@ -1,10 +1,11 @@
 import styles from '@/styles/Projects.module.css'
 import { FaSolidEject } from 'solid-icons/fa'
-import { createResource, createSignal } from 'solid-js'
+import { createEffect, createResource, createSignal } from 'solid-js'
 import { timeline, projectDataUrl } from '@/content/timeline.ts'
 import Timeline from '@/components/Timeline.tsx'
 import matter from 'gray-matter'
-import type { Project, TEProject } from '@/types/projectTimeline.d.ts'
+import { marked } from 'marked'
+import type { Project } from '@/types/projectTimeline.d.ts'
 
 type ProjectFile = {
   content: string;
@@ -38,7 +39,19 @@ const fetchProjects = async () => {
 export const [projects] = createResource<ProjectDict>(fetchProjects)
 export const [selectedProject, setSelectedProject] = createSignal<ProjectFile>(null)
 
+
+function scrollToTv() {
+  const top = document.getElementById("tv").getBoundingClientRect().top; 
+  // gap between tv and top after scrolling in px
+  const paddingTop = 100;
+  window.scrollTo({
+    top: top + window.scrollY - paddingTop, 
+    behavior: "smooth"
+  });
+}
+
 export default function Projects() {
+  createEffect(() => {if(selectedProject() !== null) scrollToTv()})
   return (
     <div class={styles.projects}>
       <Tv />
@@ -51,6 +64,10 @@ function Tv() {
   return (
     <div class={styles.tv} id="tv">
       <div class={styles.noise}/>
+      {selectedProject() && 
+        <img src={`${projectDataUrl}/${selectedProject().data.projectId}/preview.webp`}
+          alt={`${selectedProject().data.title} Preview`} />
+      }
     </div>
   )
 }
@@ -59,11 +76,17 @@ function Summary() {
   return (
     <article>
       <span class="flex p-2 items-center justify-between">
-        <h1 class="font-semibold">project timeline</h1>
+        <h1 class="font-semibold">
+          {selectedProject() === null ? 
+            "project timeline" :
+            selectedProject().data.title}
+        </h1>
         <Eject />
       </span>
-      {selectedProject() === null &&
-        <Timeline />
+      {selectedProject() === null ?
+        <Timeline /> :
+        <div class={styles.markdown}
+          innerHTML={marked.parse(selectedProject().content) as string} />
       }
     </article>
   )
