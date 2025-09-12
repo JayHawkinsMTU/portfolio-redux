@@ -1,5 +1,7 @@
 import type { TimelineEvent } from '@/types/projectTimeline.d.ts';
 
+export const projectDataUrl = "https://raw.githubusercontent.com/JayHawkinsMTU/portfolio-redux/refs/heads/main/projects"
+
 export const timeline: TimelineEvent[] = [
   {
     timestamp: "sept. '25"

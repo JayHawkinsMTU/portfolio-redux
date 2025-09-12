@@ -1,7 +1,9 @@
 import styles from '@/styles/Timeline.module.css'
 import type { TimelineEvent, Project } from '@/types/projectTimeline.d.ts'
-import { timeline } from '@/content/timeline.ts'
+import { projectDataUrl, timeline } from '@/content/timeline.ts'
 import TechIcon from '@/components/TechIcon.tsx';
+import { projects } from '@/components/Projects.tsx'
+import { Show, Switch, Match } from 'solid-js'
 
 function scrollToBottom() {
   const top = document.getElementById("timeline").getBoundingClientRect().bottom;
@@ -39,8 +41,23 @@ function EventInterpreter(args: { event: TimelineEvent }) {
     return <Timestamp month={args.event.timestamp as string}/>
   else if("blurb" in args.event)
     return <Blurb text={args.event.blurb as string}/>
-  else if("projectId" in args.event)
-    return <Project project={args.event.projectId} />
+  else if("projectId" in args.event) {
+    return (
+      <>
+        <Show when={projects.loading}>
+          <ProjectSkeleton />
+        </Show>
+        <Switch>
+          <Match when={projects.error}>
+            <p class="text-red-500">Error loading projects</p>
+          </Match>
+          <Match when={projects()}>
+            <Project project={projects()[args.event.projectId].data} />
+          </Match>
+        </Switch>
+      </>
+    )
+  }
 }
 
 function Timestamp(args: { month: string }) {
@@ -62,7 +79,8 @@ function Project(args: { project: Project }) {
   return (
     <span class={styles.project} id={args.project.title}
       onClick={() => scrollToTv()}>
-      <img src={args.project.imgSrc} alt={`${args.project.title} preview`}/>
+      <img src={`${projectDataUrl}/${args.project.projectId}/${args.project.projectId}.webp`}
+        alt={`${args.project.title} preview`} />
       <div class="px-2 w-full">
         <span class="flex items-center justify-between">
           <h1>{args.project.title}</h1>
@@ -76,6 +94,10 @@ function Project(args: { project: Project }) {
   )
 }
 
-
+function ProjectSkeleton() {
+  return (
+    <div>LOADING</div>
+  )
+}
 
 

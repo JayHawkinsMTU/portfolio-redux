@@ -13,6 +13,7 @@ export type TEProject = {
 }
 
 export type Project = {
+  projectId: string;
   title: string;
   description: string;
   technologies: Technology[]

@@ -16,17 +16,19 @@ My portfolio website built using SolidJS.
 ## Adding Projects
 
 The goal is to be able to add projects without touching html or typescript
-code and only working under `src/content`.
+code and only working under `projects/`.
 
 `src/timeline.ts` contains configuration for the order and inclusion of data
 such as projects, timestamps, and blurbs for additional context. This could
 have been a simple .json file, but exporting it as a typescript const
 allows me to easily type-check it using LSP features and prevent mistakes.
+This file is also responsible for the project resource URL, where all
+project markdown and image files are kept (this GitHub repo).
 
-`public/projects/` Should contain all data pertaining to a project in the
+`projects/` Should contain all data pertaining to a project in the
 following structure:
 ```
-public/projects/<project_name>/
+projects/<project_name>/
 | <project_name>.md                 # Contains brief write-up and frontmatter
 | <project_name>_thumbnail.webp     # 240x135 image for timeline
 | <project_name>.webp               # Higher resolution image displayed to tv

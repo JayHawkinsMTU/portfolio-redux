@@ -1,11 +1,13 @@
 import { defineConfig } from 'vite';
 import solidPlugin from 'vite-plugin-solid';
 import tailwindcss from '@tailwindcss/vite';
+import { nodePolyfills } from 'vite-plugin-node-polyfills';
 
 export default defineConfig({
   plugins: [
     tailwindcss(),
-    solidPlugin()
+    solidPlugin(),
+    nodePolyfills()
   ],
   server: {
     port: 3000,
