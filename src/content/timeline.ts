@@ -4,37 +4,34 @@ export const projectDataUrl = "https://raw.githubusercontent.com/JayHawkinsMTU/p
 
 export const timeline: TimelineEvent[] = [
   {
-    timestamp: "sept. '25"
+    timestamp: "Fall 2025"
   },
   {
     projectId: "multifx"
   },
   {
-    timestamp: "may '25"
+    timestamp: "Summer 2025"
   },
   {
     blurb: "Started software engineering internship at Alliance Laundry Systems"
   },
   {
-    timestamp: "apr. '25"
+    timestamp: "Spring 2025"
   },
   {
     projectId: "machine_shop"
   },
   {
-    timestamp: "dec. '24"
+    timestamp: "Fall 2024"
   },
   {
     projectId: "shorty_shooters"
   },
   {
-    timestamp: "august '24"
-  },
-  {
     projectId: "squigley"
   },
   {
-    timestamp: "aug. '23"
+    timestamp: "Fall 2023"
   },
   {
     blurb: "Began freshman year at Michigan Technological University"
