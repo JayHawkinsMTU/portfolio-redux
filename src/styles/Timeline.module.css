@@ -83,13 +83,13 @@
  * */
 .skeletonSpan, .skeletonImg {
   background: linear-gradient(
-		90deg,
-		rgb(var(--inactive)) 20%,
+		80deg,
+		rgb(var(--inactive)) 30%,
 		rgb(var(--background)) 50%,
-		rgb(var(--inactive)) 80%
+		rgb(var(--inactive)) 70%
 	);
   background-size: 400%;
-  animation: shimmer 1.5s infinite linear;
+  animation: shimmer 2s infinite linear;
 }
 
 @keyframes shimmer {

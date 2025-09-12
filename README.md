@@ -29,9 +29,9 @@ project markdown and image files are kept (this GitHub repo).
 following structure:
 ```
 projects/<project_name>/
-| <project_name>.md                 # Contains brief write-up and frontmatter
-| <project_name>_thumbnail.webp     # 240x135 image for timeline
-| <project_name>.webp               # Higher resolution image displayed to tv
+|- project.md           # Contains brief write-up and frontmatter
+|- thumbnail.webp       # 240x135 image for timeline
+|- preview.webp         # Higher resolution image displayed to tv
 ```
 
 `<project_name>.md` will contain the following in the frontmatter:

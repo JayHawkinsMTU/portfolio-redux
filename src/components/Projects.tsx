@@ -6,8 +6,6 @@ import Timeline from '@/components/Timeline.tsx'
 import matter from 'gray-matter'
 import type { Project, TEProject } from '@/types/projectTimeline.d.ts'
 
-type TvState = "EMPTY" | "LOADING" | "LOADED"
-
 type ProjectFile = {
   content: string;
   data: Project;
@@ -20,7 +18,7 @@ const fetchProjects = async () => {
   for(const e of timeline) {
     if("projectId" in e) {
       try {
-        const url = `${projectDataUrl}/${e.projectId}/${e.projectId}.md`
+        const url = `${projectDataUrl}/${e.projectId}/project.md`
         const response = await fetch(url)
         const body = await response.text();
         const m = matter(body);
@@ -34,17 +32,13 @@ const fetchProjects = async () => {
       }
     }
   }
-  await new Promise(resolve => setTimeout(resolve, 5000));
   return projs
 }
 
 export const [projects] = createResource<ProjectDict>(fetchProjects)
-const [tvState, setTvState] = createSignal<TvState>("EMPTY")
+export const [selectedProject, setSelectedProject] = createSignal<ProjectFile>(null)
 
 export default function Projects() {
-
-  //await fetch(`${projectDataUrl}machine_shop/machine_shop.md`)
-
   return (
     <div class={styles.projects}>
       <Tv />
@@ -68,7 +62,7 @@ function Summary() {
         <h1 class="font-semibold">project timeline</h1>
         <Eject />
       </span>
-      {tvState() == "EMPTY" &&
+      {selectedProject() === null &&
         <Timeline />
       }
     </article>
@@ -79,9 +73,9 @@ function Eject() {
   return (
     <FaSolidEject
       class={
-        `${styles.eject} ${tvState() == "EMPTY" && "fill-[rgb(var(--inactive))] pointer-events-none"}`
+        `${styles.eject} ${selectedProject() === null && "fill-[rgb(var(--inactive))] pointer-events-none"}`
       } 
-      onclick={() => setTvState("EMPTY")}
+      onclick={() => setSelectedProject(null)}
     />
   )
 }

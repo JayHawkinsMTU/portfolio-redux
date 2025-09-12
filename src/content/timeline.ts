@@ -28,9 +28,6 @@ export const timeline: TimelineEvent[] = [
     projectId: "shorty_shooters"
   },
   {
-    projectId: "rhythm_cowboy"
-  },
-  {
     timestamp: "august '24"
   },
   {

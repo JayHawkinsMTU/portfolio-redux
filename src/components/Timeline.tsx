@@ -15,8 +15,8 @@ function scrollToBottom() {
 
 function scrollToTv() {
   const top = document.getElementById("tv").getBoundingClientRect().top; 
-  // gap between tv and top after scrolling
-  const paddingTop = 25;
+  // gap between tv and top after scrolling in px
+  const paddingTop = 100;
   window.scrollTo({
     top: top + window.scrollY - paddingTop, 
     behavior: "smooth"
@@ -79,7 +79,7 @@ function Project(args: { project: Project }) {
   return (
     <span class={styles.project} id={args.project.title}
       onClick={() => scrollToTv()}>
-      <img src={`${projectDataUrl}/${args.project.projectId}/${args.project.projectId}.webp`}
+      <img src={`${projectDataUrl}/${args.project.projectId}/thumbnail.webp`}
         alt={`${args.project.title} preview`} />
       <div class="px-2 w-full">
         <span class="flex items-center justify-between">
