@@ -5,6 +5,7 @@ import { timeline, projectDataUrl } from '@/content/timeline.ts'
 import Timeline from '@/components/Timeline.tsx'
 import matter from 'gray-matter'
 import { marked } from 'marked'
+import DOMPurify from 'dompurify'
 import type { Project } from '@/types/projectTimeline.d.ts'
 
 type ProjectFile = {
@@ -86,7 +87,7 @@ function Summary() {
       {selectedProject() === null ?
         <Timeline /> :
         <div class={styles.markdown}
-          innerHTML={marked.parse(selectedProject().content) as string} />
+          innerHTML={DOMPurify.sanitize(marked.parse(selectedProject().content) as string)} />
       }
     </article>
   )
