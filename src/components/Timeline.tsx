@@ -96,7 +96,15 @@ function Project(args: { project: Project }) {
 
 function ProjectSkeleton() {
   return (
-    <div>LOADING</div>
+    <span class={styles.project}
+      onClick={() => scrollToTv()}>
+      <div class={styles.skeletonImg} />
+      <div class="px-2 w-full">
+        <span class="flex items-center justify-between">
+          <div class={styles.skeletonSpan} />
+        </span>
+      </div>
+    </span>
   )
 }
 
