@@ -72,6 +72,7 @@ function Tv() {
         <img src={`${projectDataUrl}/${selectedProject().data.projectId}/preview.webp`}
           alt={`${selectedProject().data.title} Preview`} />
       }
+      <div class={styles.crt} />
     </div>
   )
 }

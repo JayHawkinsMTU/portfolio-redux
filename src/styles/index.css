@@ -17,6 +17,7 @@
   --deep: 18, 16, 15;
   --primary-font: 'Montserrat';
   --mono-font: 'Hack', 'Fira Mono', mono;
+  z-index: -5;
 }
 
 body {
