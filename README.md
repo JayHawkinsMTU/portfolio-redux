@@ -31,7 +31,7 @@ following structure:
 projects/<project_name>/
 |- project.md           # Contains brief write-up and frontmatter
 |- thumbnail.webp       # 240x135 image for timeline
-|- preview.webp         # Higher resolution image displayed to tv
+|- preview.webp         # 640x480 animated image displayed to tv
 ```
 
 `<project_name>.md` will contain the following in the frontmatter:
