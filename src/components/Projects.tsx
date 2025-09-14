@@ -10,6 +10,7 @@ import type { Project } from '@/types/projectTimeline.d.ts'
 import { FiGithub } from 'solid-icons/fi'
 import { ImSteam } from 'solid-icons/im'
 import { RiEditorLinkM } from 'solid-icons/ri'
+import { JSX } from 'solid-js'
 
 type ProjectFile = {
   content: string;
@@ -43,6 +44,7 @@ const fetchProjects = async () => {
 export const [projects] = createResource<ProjectDict>(fetchProjects)
 export const [selectedProject, setSelectedProject] = createSignal<ProjectFile>(null)
 
+var prevProjId: string = null;
 
 function scrollToTv() {
   const top = document.getElementById("tv").getBoundingClientRect().top; 
@@ -54,8 +56,25 @@ function scrollToTv() {
   });
 }
 
+function scrollToPrevProject() {
+  if(!prevProjId) return;
+  const top = document.getElementById(`tl_${prevProjId}`).getBoundingClientRect().top; 
+  const paddingTop = window.innerHeight / 2;
+  window.scrollTo({
+    top: top + window.scrollY - paddingTop, 
+    behavior: "smooth"
+  });
+}
+
 export default function Projects() {
-  createEffect(() => {if(selectedProject() !== null) scrollToTv()})
+  createEffect(() => {
+    if(selectedProject() !== null) {
+      scrollToTv()
+      prevProjId = selectedProject().data.projectId
+    }
+    else scrollToPrevProject();
+  })
+
   return (
     <div class={styles.projects}>
       <Tv />
@@ -79,7 +98,7 @@ function Tv() {
 
 function Summary() {
   return (
-    <article>
+    <div>
       <span class="flex p-2 items-center justify-between">
         <h1 class="font-semibold">
           {selectedProject() === null ? 
@@ -91,34 +110,40 @@ function Summary() {
       {selectedProject() === null ?
         <Timeline /> : <ProjectArticle />
       }
-    </article>
+    </div>
   )
 }
 
 function ProjectArticle() {
-  const proj = selectedProject();
   return (
     <article>
-      <span class="flex">
-        {proj.data.githubUrl && 
-          <SmallLinkIcon href={proj.data.githubUrl}>
-            <FiGithub class={styles.icon}/>
-          </SmallLinkIcon>  
-        }
-        {proj.data.steamUrl && 
-          <SmallLinkIcon href={proj.data.steamUrl}>
-            <ImSteam class={styles.icon}/>
-          </SmallLinkIcon>  
-        }
-        {proj.data.otherUrl && 
-          <SmallLinkIcon href={proj.data.otherUrl}>
-            <RiEditorLinkM class={styles.icon}/>
-          </SmallLinkIcon>  
-        }
-      </span>
+      <ProjectLinks />
       <div class={styles.markdown}
-        innerHTML={DOMPurify.sanitize(marked.parse(proj.content) as string)} />
+        innerHTML={DOMPurify.sanitize(marked.parse(selectedProject().content) as string)} />
     </article>
+  )
+}
+
+function ProjectLinks() {
+  const proj = selectedProject();
+  return (
+    <span class="flex">
+      {proj.data.githubUrl && 
+        <SmallLinkIcon href={proj.data.githubUrl}>
+          <FiGithub class={styles.icon}/>
+        </SmallLinkIcon>  
+      }
+      {proj.data.steamUrl && 
+        <SmallLinkIcon href={proj.data.steamUrl}>
+          <ImSteam class={styles.icon}/>
+        </SmallLinkIcon>  
+      }
+      {proj.data.otherUrl && 
+        <SmallLinkIcon href={proj.data.otherUrl}>
+          <RiEditorLinkM class={styles.icon}/>
+        </SmallLinkIcon>  
+      }
+    </span>
   )
 }
 
@@ -133,7 +158,7 @@ function Eject() {
   )
 }
 
-export function SmallLinkIcon(args: {href: string, children: JSXElement}) {
+export function SmallLinkIcon(args: {href: string, children: JSX.Element}) {
   return (
     <a href={args.href}>
     <button class={styles.smallLink}>

@@ -20,6 +20,11 @@
   z-index: -5;
 }
 
+article {
+  padding: 10px;
+  background-color: rgba(var(--deep), 0.5);
+}
+
 body {
   margin: 0;
   font-family: var(--primary-font), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',

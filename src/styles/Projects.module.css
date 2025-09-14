@@ -1,12 +1,15 @@
 .projects {
   margin: 30vh auto;
-  width: 48rem;
+  width: 52rem;
   max-width: 90vw;
 }
 
+.projects > * {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
 
 .tv {
-  width: 100%;
   aspect-ratio: 4 / 3;
   background-color: white;
   border-radius: 10%;

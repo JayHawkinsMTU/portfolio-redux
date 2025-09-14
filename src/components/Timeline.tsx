@@ -2,8 +2,8 @@ import styles from '@/styles/Timeline.module.css'
 import type { TimelineEvent, Project } from '@/types/projectTimeline.d.ts'
 import { projectDataUrl, timeline } from '@/content/timeline.ts'
 import TechIcon from '@/components/TechIcon.tsx';
-import { projects, selectedProject, setSelectedProject } from '@/components/Projects.tsx'
-import { Show, Switch, Match, createEffect } from 'solid-js'
+import { projects, setSelectedProject } from '@/components/Projects.tsx'
+import { Show, Switch, Match } from 'solid-js'
 
 function scrollToBottom() {
   const top = document.getElementById("timeline").getBoundingClientRect().bottom;
@@ -67,7 +67,7 @@ function Blurb(args: { text: string }) {
 
 function Project(args: { project: Project }) {
   return (
-    <span class={styles.project} id={args.project.title}
+    <span class={styles.project} id={`tl_${args.project.projectId}`}
       onClick={() => {
         setSelectedProject(projects()[args.project.projectId]);
       }}>
