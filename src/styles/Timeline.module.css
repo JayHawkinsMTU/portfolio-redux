@@ -46,7 +46,6 @@
 
 .project {
   display: flex;
-  overflow-x: hidden;
   width: 100%;
   padding: 3px;
   background-color: rgba(0, 0, 0, 0.5);
@@ -90,6 +89,31 @@
 	);
   background-size: 400%;
   animation: shimmer 2s infinite linear;
+}
+
+@media (width < 48rem) {
+  .timestamp {
+    font-size: 1.5rem;
+  }
+
+  .project {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .project img, .skeletonImg {
+    margin: 0.5rem auto;
+    height: auto;
+  }
+
+  .skeletonImg {
+    width: 240px;
+    height: 135px;
+  }
+
+  .skeletonSpan {
+    margin-bottom: 3rem;
+  }
 }
 
 @keyframes shimmer {

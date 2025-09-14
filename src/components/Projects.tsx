@@ -100,7 +100,7 @@ function Summary() {
   return (
     <div>
       <span class="flex p-2 items-center justify-between">
-        <h1 class="font-semibold">
+        <h1 class={styles.projectTitle}>
           {selectedProject() === null ? 
             "project timeline" :
             selectedProject().data.title}
