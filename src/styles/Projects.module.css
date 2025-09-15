@@ -160,10 +160,14 @@
   color: rgb(var(--foreground));
 }
 
-.markdown p {
+.mardown p, .markdown li {
   font-size: 0.9rem;
+}
+
+.markdown p {
   margin-bottom: 1rem;
 }
+
 
 .markdown ul {
   list-style-type: square;
@@ -193,7 +197,7 @@
     font-size: 3rem;
   }
 
-  .markdown p {
+  .markdown p, .markdown li {
     font-size: 1rem;
   }
 }
