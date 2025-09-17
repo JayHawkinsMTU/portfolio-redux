@@ -16,7 +16,7 @@ export default function Hero(args: HeroArguments) {
         <Subtitle subtitle={args.subtitle} />
       </div>
       <span class="my-5 mx-auto inline-block">
-        <LinkIcon href="https://github.com/JayHawkinsMTU">
+        <LinkIcon href="https://github.com/jayhwkns">
           <FiGithub class={styles.icon} />
         </LinkIcon>
         <LinkIcon href="https://www.linkedin.com/in/jakob-hawkins-a37421310/">
